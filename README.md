@@ -13,7 +13,7 @@ $ cd pythonChatPrototype
 $ python3 client.py
 ```
 ## Server Use:
-On runtime you will be asked to provide an IP address. This can be easily found with the Linux command `ifconfig` labeled as `inet` in the format `xxx.xxx.xxx.xxx`, a port number between 0 and 65535, and a message of the day blurb. Once entered the server will begin listening for connecting clients. Upon the conncetion of a client, you will be given an alert containing the the IP and Port the client connected from, as well as their chosen nickname. All messages sent between clients can be seen in purple on the server. 
+On runtime you will be asked to provide an IP address. This can be easily found with the Linux command `ifconfig` labeled as `inet` in the format `xxx.xxx.xxx.xxx`, a port number between 0 and 65535 (keep in mind some of these are already reserved; find an unreserved one!), and a message of the day blurb. Once entered the server will begin listening for connecting clients. Upon the conncetion of a client, you will be given an alert containing the the IP and Port the client connected from, as well as their chosen nickname. All messages sent between clients can be seen in purple on the server. 
 ## Client Use:
 ### Connecting:
 On runtime you will be asked to provide the server's IP address and port number along with a chosen nickname for the session. Upon a successful connection, the server will send the new client a confirmation messages containing their nickname as well as a list of commands. The client can then type a message to be sent to the server as well as all connected clients. Keep in mind a client will recieve their own messages and all recieved messages will be colored purple. 
