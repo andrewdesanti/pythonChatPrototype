@@ -6,7 +6,7 @@ import threading
 hostIP = str(input("HostIP? : "))
 port = int(input("Port Number? : "))
 #ask for message of the day for the !motd command
-motd = str(input("Message of the Day?: "))
+motd = str(input("Message of the Day? : "))
 tempMOTD = motd
 #!about blurb
 about = "This is a Python LAN chat server prototype for Andrew DeSanti's final for CPE490 Fall 2020. More info here: https://github.com/jagerking/pythonChatPrototype ."
@@ -39,8 +39,6 @@ def handling(client):
 			commands(message)
 			sending(message)
 
-
-
 		#if an error has been thrown, remove the client and inform all other clients...
 		except:
 			index = clientList.index(client)
@@ -50,6 +48,7 @@ def handling(client):
 			sending('{} has left!'.format(nickname).encode('ascii'))
 			nicknameList.remove(nickname)
 			break
+
 #function that actively runs the server...
 def recieving():
 	while True:
@@ -71,8 +70,8 @@ def recieving():
 		#thread each client into its own itteration of the handling function so they may run parrallel to each other
 		handlingThread = threading.Thread(target=handling, args=(client,))
 		handlingThread.start()
-#actually run the recieving function
 
+#function checking if messages are commands
 def commands(encodedMessage):
 	mess = encodedMessage.decode('ascii')
 	tempNickStr = ""
@@ -85,4 +84,5 @@ def commands(encodedMessage):
 		elif mess == j + ": !about":
 			sending(about.encode('ascii'))
 
+#actually run the recieving function
 recieving()
