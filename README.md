@@ -1,6 +1,6 @@
 # pythonChatPrototype
 Andrew DeSanti's Python LAN Chat Prototype for CPE490 Fall 2020. A Client-Server chatroom capable of sending messages to a group of clients in a single room.  
-## Install
+## Installation:
 `git clone https://github.com/jagerking/pythonChatPrototype.git`
 ### To Run as a Server:
 ```
