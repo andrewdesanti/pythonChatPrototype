@@ -13,6 +13,7 @@ about = "This is a Python LAN chat server prototype for Andrew DeSanti's final f
 
 #set this socket instance up as the server, claim IP and Port, begin listening to the correct port...
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind((hostIP, port))
 server.listen()
 
@@ -36,7 +37,7 @@ def handling(client):
 		try:
 			message = client.recv(1024)
 			prLightPurple(message.decode('ascii'))
-			commands(message)
+			commands(message, client)
 			sending(message)
 
 		#if an error has been thrown, remove the client and inform all other clients...
@@ -72,17 +73,29 @@ def recieving():
 		handlingThread.start()
 
 #function checking if messages are commands
-def commands(encodedMessage):
+def commands(encodedMessage, client):
 	mess = encodedMessage.decode('ascii')
 	tempNickStr = ""
+	removee = ""
 	for j in nicknameList:
+		#send all clients clientList[]
 		if mess == j + ": !clients":
 			tempNickStr = str(nicknameList)
 			sending(tempNickStr.encode('ascii'))
+		#send all clients motd
 		elif mess == j + ": !motd":
 			sending(tempMOTD.encode('ascii'))
+		#send all clients about
 		elif mess == j + ": !about":
 			sending(about.encode('ascii'))
+		#disconnect the client
+		elif mess == j + ": !quit":
+			removeIndex = clientList.index(client)
+			clientList.remove(client)
+			client.close()
+			removee = nicknameList[removeIndex]
+			sending('{} has left!'.format(removee).encode('ascii'))
+			nicknameList.remove(removee)
 
 #actually run the recieving function
 recieving()

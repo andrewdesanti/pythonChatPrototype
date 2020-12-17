@@ -26,3 +26,4 @@ There are several commands available for the clients to use. Keep in mind the se
 -!clients : This command sends a list of all currently connected client Nicknames
 -!about : This command sends a short blurb about the chatroom and a link to this GitHub page.
 -!motd: This command sends the Message of the Day provided by the server at its start.
+-!quit: This command will cleanly disconnect the client from the server
