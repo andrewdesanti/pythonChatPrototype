@@ -13,7 +13,6 @@ about = "This is a Python LAN chat server prototype for Andrew DeSanti's final f
 
 #set this socket instance up as the server, claim IP and Port, begin listening to the correct port...
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind((hostIP, port))
 server.listen()
 
