@@ -19,7 +19,7 @@ On runtime you will be asked to provide an IP address. This can be easily found 
 On runtime you will be asked to provide the server's IP address and port number along with a chosen nickname for the session. Upon a successful connection, the server will send the new client a confirmation messages containing their nickname as well as a list of commands. The client can then type a message to be sent to the server as well as all connected clients. Keep in mind a client will recieve their own messages and all recieved messages will be colored purple. 
 ### Commands:
 There are several commands available for the clients to use. Keep in mind the server's response to these commands will be visable to all connected clients.
--!clients : This command sends a list of all currently connected client Nicknames
--!about : This command sends a short blurb about the chatroom and a link to this GitHub page.
--!motd: This command sends the Message of the Day provided by the server at its start.
--!quit: This command will cleanly disconnect the client from the server
+- !clients : This command sends a list of all currently connected client Nicknames
+- !about : This command sends a short blurb about the chatroom and a link to this GitHub page.
+- !motd: This command sends the Message of the Day provided by the server at its start.
+- !quit: This command will cleanly disconnect the client from the server
